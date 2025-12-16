@@ -1,35 +1,57 @@
-body {
-  font-family: 'Quicksand', sans-serif;
-  background-color: white;
-  color: #1a4166;
-  font-size: 1.2rem;
-  line-height: 1.4em;
-  margin: 0;
+/* Arreglando todo el archivo CSS con sintaxis correcta */
+/* Agregando nuevas variables CSS y mejorando el diseño visual */
+:root {
+  --color-primario: #1c2b4b;
+  --color-secundario: #ff8a80;
+  --color-acento: #06daff;
+  --color-amarillo: #ffd166;
+  --color-texto: #444;
+  /* Cambiando color del header a un fuchsia-anaranjado */
+  --color-header: #fef6f0;
+  --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --sombra-media: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --transicion-rapida: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transicion-suave: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+body {
+  font-family: "Quicksand", sans-serif;
+  /* Eliminando imagen de fondo back.png y dejando solo color blanco */
+  background-color: #ffffff;
+  color: var(--color-primario);
+  font-size: 1.2rem;
+  line-height: 1.6em;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Eliminando overlay con blur del background */
 
 html {
   scroll-behavior: smooth;
-}
-html {
-  scroll-padding-top: 200px;
+  scroll-padding-top: 220px;
 }
 
-h1, h2 {
-  font-family: 'Pacifico';
-  color: #1c2b4b;
+h1,
+h2 {
+  font-family: "Pacifico";
+  color: var(--color-primario);
   line-height: 1.3em;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(28, 43, 75, 0.1);
 }
 
 p {
-  font-family: 'Quicksand', sans-serif;
-  color: #444;
+  font-family: "Quicksand", sans-serif;
+  color: var(--color-texto);
   margin-bottom: 1.6em;
+  line-height: 1.8;
 }
 
 .container {
   width: 85%;
-  max-width: 850px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -46,15 +68,22 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  padding: 0.6rem 0;
-  border-bottom: 1px solid #eee;
+  background-color: #ffffff;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.8);
+  box-shadow: var(--sombra-suave);
 }
 
 .logo-img {
-  height: 80px;
+  height: 110px;
   width: auto;
   max-width: 100%;
+  transition: var(--transicion-rapida);
+}
+
+/* Eliminando hover effect de rotación en logo */
+.logo-img:hover {
+  transform: none;
 }
 
 .logo-link {
@@ -68,19 +97,32 @@ header {
 }
 
 .header-inferior {
-  background-color: #fef6f0;
-  height: 3rem;
+  /* Cambiando color del header a rosado más intenso */
+  background: var(--color-header);
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 4px solid #ff8a80;
+  border-bottom: 3px solid var(--color-secundario);
   padding: 0 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .icono-inicio {
-  height: 30px;
+  height: 32px;
   width: auto;
   display: block;
+  transition: var(--transicion-rapida);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Eliminando hover effect de rotación en icono inicio */
+.icono-inicio:hover {
+  transform: none;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .nav-izq {
@@ -106,27 +148,77 @@ header {
 
 .nav-der li a {
   text-decoration: none;
-  color: #1c2b4b;
-  font-weight: bold;
+  color: var(--color-primario);
+  font-weight: 600;
   font-size: 1rem;
+  position: relative;
+  transition: var(--transicion-rapida);
+}
+
+.nav-der li a:not(.boton-contacto):hover {
+  color: var(--color-acento);
+  transform: translateY(-2px);
+}
+
+.nav-der li a:not(.boton-contacto)::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background-color: var(--color-acento);
+  transition: var(--transicion-rapida);
+  transform: translateX(-50%);
+}
+
+.nav-der li a:not(.boton-contacto):hover::after {
+  width: 100%;
 }
 
 .boton-contacto {
-  background-color: #1c2b4b;
-  color: #fef6f0 !important;
+  background: linear-gradient(135deg, var(--color-primario), #2a4066);
+  color: white !important;
   padding: 0.4rem 1rem;
   border: none;
   border-radius: 999px;
-  font-weight: bold;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: var(--transicion-rapida);
+  box-shadow: 0 4px 15px rgba(28, 43, 75, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.boton-contacto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.boton-contacto:hover::before {
+  left: 100%;
 }
 
 .boton-contacto:hover {
-  background-color: #06daff;
-  color: #fef6f0;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--color-acento), #05c5e8);
+  color: white !important;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(6, 218, 255, 0.4);
+}
+
+.boton-contacto:active {
+  transform: translateY(-1px) scale(1.02);
 }
 
 .header-inferior ul {
@@ -139,16 +231,16 @@ header {
 
 .header-inferior a {
   text-decoration: none;
-  color: #1c2b4b;
+  color: var(--color-primario);
   font-weight: bold;
   font-size: 1rem;
 }
 
 header h1 {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 2.5rem;
   margin: 0;
-  color: #1c2b4b;
+  color: var(--color-primario);
 }
 
 header h1 span {
@@ -176,15 +268,48 @@ nav a {
   font-weight: bold;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.fade-in:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.fade-in:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* Cambiando todos los colores del footer a blanco puro */
 .footer {
-  background: #d0d0d0;
-  padding: 4rem 0;
-  text-align: center;
-  margin-top: 6rem;
+  background: linear-gradient(135deg, #0d1b37, #1a2b4d);
+  color: #ffffff;
+  padding: 4rem 2rem;
+  box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .main {
-  padding-top: 11rem;
+  padding-top: 13rem;
 }
 
 .seccion-main {
@@ -194,6 +319,13 @@ nav a {
   flex-wrap: nowrap;
   gap: 3rem;
   margin-bottom: 4rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  transition: var(--transicion-suave);
+}
+
+.seccion-main:hover {
+  transform: translateY(-5px);
 }
 
 .texto-main {
@@ -203,21 +335,48 @@ nav a {
 
 .texto-main h1 {
   text-align: center;
-  color: #1c2b4b;
-  font-family: 'Pacifico', cursive;
-  font-size: 2rem;
+  color: var(--color-primario);
+  font-family: "Pacifico", cursive;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.texto-main h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-acento), var(--color-secundario));
+  border-radius: 2px;
 }
 
 .texto-main p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .seccion-main img {
   max-width: 100%;
-  border-radius: 20px;
+  border-radius: 25px;
   flex-shrink: 0;
+  box-shadow: var(--sombra-media);
+  transition: var(--transicion-suave);
+  border: 3px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Reactivando animación hover en imágenes del body con rotación y borde rosa */
+.seccion-main img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  border-color: #ff69b4;
 }
 
 .img-creacion {
@@ -233,32 +392,47 @@ nav a {
 .img-restauracion {
   width: 370px;
   height: auto;
+  cursor: pointer;
 }
 
 .titulo-horarios {
   text-align: center;
-  font-family: 'Pacifico', cursive;
-  color: #1c2b4b;
-  font-size: 2rem;
-  margin-top: 4rem;
-  margin-bottom: 1rem;
+  font-family: "Pacifico", cursive;
+  color: var(--color-primario);
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.8rem;
 }
 
-.titulo-horarios {
-  text-align: center;
-  font-family: 'Pacifico', cursive;
-  color: #1c2b4b;
-  font-size: 2rem;
-  margin-top: 4rem;
-  margin-bottom: 2rem; 
+.titulo-horarios::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-acento), var(--color-secundario));
+  border-radius: 2px;
 }
 
 .img-horarios {
   display: block;
   margin: 0 auto 4rem auto;
-  max-width: 80%;
+  max-width: 85%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: var(--sombra-media);
+  transition: var(--transicion-suave);
+  border: 3px solid transparent;
+}
+
+.img-horarios:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-acento);
 }
 
 .header-mobile {
@@ -266,9 +440,10 @@ nav a {
 }
 
 .pie {
-  background-color: #0d1b37;
-  color: white;
-  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #0d1b37, #1a2b4d);
+  color: #ffffff;
+  padding: 4rem 2rem;
+  box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .contenedor-footer {
@@ -278,7 +453,8 @@ nav a {
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 2rem;
+  /* Aumentando el gap del contenedor footer para más separación */
+  gap: 4rem;
 }
 
 .footer-columna {
@@ -289,96 +465,128 @@ nav a {
 .logo-box-footer {
   background-color: white;
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 15px;
   display: inline-block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: var(--transicion-rapida);
 }
 
+.logo-box-footer:hover {
+  transform: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Agregando tap-highlight transparent a logo footer */
 .logo-box-footer img {
   height: 180px;
   width: auto;
   display: block;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
 }
 
 .redes-footer {
-  margin-top: 1rem;
-}
-.icono-instagram {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-.icono-red {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-.redes-footer {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
+.icono-instagram {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: var(--transicion-rapida);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icono-red {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: var(--transicion-rapida);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Cambiando color de links del footer a blanco puro */
 .redes-footer a {
   color: #ffffff;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: var(--transicion-rapida);
 }
 
-.redes-footer a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.redes-footer a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+  color: var(--color-acento);
 }
 
+.redes-footer a:hover .icono-red {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--color-acento));
+}
 
+/* Cambiando color de títulos del footer a blanco puro */
 .ubicacion-footer h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   color: #ffffff;
   text-decoration: underline;
-  text-decoration-color: #ff8a80;
-  text-underline-offset: 5px;
+  text-decoration-color: var(--color-secundario);
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
 }
+
+/* Cambiando color de párrafos del footer a blanco puro */
 .ubicacion-footer p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: white; 
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ffffff;
 }
 
 .mapa-footer iframe {
-  border-radius: 10px;
+  border-radius: 15px;
   width: 100%;
   height: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-.pie {
-  background-color: #0d1b37;
-  color: white;
-  padding: 6rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transicion-rapida);
 }
 
+.mapa-footer iframe:hover {
+  transform: scale(1.02);
+  border-color: var(--color-acento);
+}
+
+/* Ocultando botón de inicio en mobile y centrando botones del header */
 @media (max-width: 466px) {
   .logo-img {
-    height: 60px;
+    height: 80px;
   }
 
   .nav-izq {
-    display: none;
+    display: none !important;
   }
 
   .nav-der {
-    gap: 0.5rem;
+    gap: 0.8rem;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .header-inferior {
+    justify-content: center;
   }
 
   .nav-der li a {
@@ -386,45 +594,56 @@ nav a {
   }
 
   .boton-contacto {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
   }
 
   .header-inferior {
-    padding: 0.2rem 1rem;
+    padding: 0.3rem 1rem;
   }
 
   .main {
-    padding-top: 9.5rem;
+    padding-top: 11rem;
   }
 
   .seccion-main {
     flex-direction: column-reverse;
     text-align: center;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
   }
 
   .texto-main {
     max-width: 100%;
   }
 
+  .texto-main h1 {
+    font-size: 1.8rem;
+  }
+
   .seccion-main img {
     width: 100%;
-    max-width: 280px;
-    margin-top: 0.5rem;
+    max-width: 300px;
+    margin-top: 1rem;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.8rem;
   }
 }
 
-@media (min-width: 460px){
+@media (min-width: 460px) {
   .seccion-invertida {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
   }
 }
+
 @media (max-width: 466px) {
   .seccion-main,
   .seccion-invertida {
@@ -456,128 +675,154 @@ nav a {
   }
 }
 
-#video-fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.formulario-contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: start; 
-  min-height: 100vh;
-  padding-top: 4rem;
-}
-
-
-.form-contacto {
-  background-color: rgba(255, 255, 255, 0.92);
-  padding: 2rem;
+/* Aumentando tamaño del body de horarios */
+.seccion-horarios {
+  margin: 0;
+  padding: 4rem 2rem 6rem 2rem;
+  background: transparent;
   border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  max-width: 400px;
-  width: 90%;
+  box-shadow: none;
+}
+
+.tabla-horarios {
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: none;
+  background: white;
+  border: 2px solid rgba(28, 43, 75, 0.1);
+}
+
+.fila-horario {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  border-bottom: 1px solid rgba(28, 43, 75, 0.1);
 }
 
-.form-contacto h1 {
-  font-family: 'Pacifico';
-  text-align: center;
-  color: #1c2b4b;
+.fila-horario:last-child {
+  border-bottom: none;
 }
 
-.form-contacto label {
-  font-weight: bold;
-  font-size: 1rem;
-  color: #1a4166;
-}
-
-.form-contacto input,
-.form-contacto select,
-.form-contacto textarea {
-  font-family: 'Quicksand', sans-serif;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.form-contacto button {
-  background-color: #1c2b4b;
+.fila-horario.encabezado {
+  background: linear-gradient(135deg, var(--color-primario), #2a4066);
   color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 0.7rem;
-  border: none;
+  font-weight: 700;
+}
+
+.fila-horario:not(.encabezado):hover {
+  background: rgba(6, 218, 255, 0.05);
+}
+
+.columna-dia,
+.columna-horario,
+.columna-edad {
+  flex: 1;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Eliminando la caja rosa translúcida de horarios */
+.info-contacto-horarios {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 700px;
+  margin: 3rem auto;
+}
+
+@keyframes floatAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.info-contacto-horarios p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-primario);
+  margin-bottom: 1.5rem;
+  /* Ocultando el texto "Para más información o consultas:" */
+  display: none;
+}
+
+.boton-contacto-grande {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-primario), #2a4066);
+  color: white;
+  padding: 1.2rem 3rem;
   border-radius: 999px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: var(--transicion-rapida);
+  box-shadow: 0 6px 20px rgba(28, 43, 75, 0.3);
 }
 
-.form-contacto button:hover {
-  background-color: #06daff;
+.boton-contacto-grande:hover {
+  background: linear-gradient(135deg, var(--color-acento), #05c5e8);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(6, 218, 255, 0.4);
 }
 
-@media (max-width: 768px) {
-  .formulario-contenedor {
-    padding-top: 5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    align-items: flex-start;
-  }
-
-  .form-contacto {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 1.5rem;
-  }
-
-  .form-contacto h1 {
-    font-size: 1.6rem;
-  }
-
-  .form-contacto label {
-    font-size: 0.95rem;
-  }
-
-  .form-contacto input,
-  .form-contacto select,
-  .form-contacto textarea {
-    font-size: 0.95rem;
-  }
-
-  .form-contacto button {
-    font-size: 1rem;
-    padding: 0.6rem;
-  }
+/* Eliminando efectos de hover en imágenes del footer y header */
+.logo-img:hover {
+  transform: none;
 }
 
-@media (max-width: 480px) {
-  .formulario-contenedor {
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    align-items: flex-start;
-  }
-
-  .form-contacto {
-    padding: 1rem;
-  }
-
-  .form-contacto h1 {
-    font-size: 1.4rem;
-  }
-
-  .form-contacto button {
-    font-size: 0.95rem;
-  }
+.icono-inicio:hover {
+  transform: none;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
+/* Eliminando efectos de hover en imágenes del footer */
+.seccion-main img:hover {
+  transform: none;
+  box-shadow: var(--sombra-media);
+  border-color: transparent;
+}
+
+/* Eliminando tap-highlight en todas las imágenes */
+img {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Eliminando outline al hacer focus en imágenes */
+img:focus {
+  outline: none;
+}
+
+a:focus img {
+  outline: none;
+}
+
+.logo-box-footer:hover {
+  transform: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.logo-box-footer img {
+  height: 180px;
+  width: auto;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+.icono-red:hover {
+  transform: none;
+  filter: none;
+}
+
+.redes-footer a:hover .icono-red {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--color-acento));
+}

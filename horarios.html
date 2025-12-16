@@ -5,34 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="estilos.css">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-  <title>El Taller - Espacio de Arte</title>
+  <title>Horarios - El Taller</title>
 </head>
 <body>
 
 <header class="header">
   <div class="header-logo-superior">
-    <a href="#" class="logo-link">
+    <a href="index.html" class="logo-link">
+      <!-- Corrigiendo ruta del logo a imagenes/logo.jpeg -->
       <img src="imagenes/logo.jpeg" alt="Logo de El Taller" class="logo-img">
     </a>
   </div>
   <nav class="header-inferior">
     <ul class="nav-izq">
       <li>
-        <a href="#">
+        <a href="index.html">
           <img src="imagenes/pngwing.com(1).png" alt="Inicio" class="icono-inicio">
         </a>
       </li>
     </ul>
     <ul class="nav-der">
         <li><a href="horarios.html">Horarios</a></li>
-       <li><a href="#ubicacion">Ubicación</a></li>
+       <li><a href="index.html#ubicacion">Ubicación</a></li>
        <li><a href="https://ig.me/m/eltaller_espacio_de_arte" target="_blank" rel="noopener noreferrer" class="boton-contacto">Contáctanos</a></li>
     </ul>
   </nav>
   <nav class="header-mobile">
     <ul class="nav-der">
       <li><a href="horarios.html">Horarios</a></li>
-      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="index.html#ubicacion">Ubicación</a></li>
       <li><a href="https://ig.me/m/eltaller_espacio_de_arte" target="_blank" rel="noopener noreferrer" class="boton-contacto">Contáctanos</a></li>
     </ul>
     <div class="mobile-separator"></div>
@@ -41,48 +42,35 @@
 
 <main class="main">
   <div class="container">
-
-    <div class="seccion-main fade-in">
-      <div class="texto-main">
-        <h1>Acerca de El Taller</h1>
-        <p>
-          Un lugar donde la creatividad es libre y cada expresión tiene su valor.<br>
-          En El Taller, cada niño y niña elige qué quiere crear, cómo lo quiere hacer y a su propio ritmo.
-          Nuestro rol es acompañar, no dirigir.<br><br>
-          Porque cuando les damos libertad, los chicos nos sorprenden con su imaginación, sensibilidad y originalidad.
-          El arte no se enseña, se vive. Y en El Taller, cada obra es un reflejo único de quien la crea.
-        </p>
+    <div class="seccion-horarios fade-in">
+      <h1 class="titulo-horarios">Horarios del Taller de Arte</h1>
+      
+      <div class="tabla-horarios">
+        <div class="fila-horario encabezado">
+          <div class="columna-dia">Día</div>
+          <div class="columna-horario">Horario</div>
+          <div class="columna-edad">Edad</div>
+        </div>
+        
+        <div class="fila-horario">
+          <div class="columna-dia">Martes</div>
+          <div class="columna-horario">17:00 - 18:30</div>
+          <div class="columna-edad">Mayores de 6 años</div>
+        </div>
+        
+        <div class="fila-horario">
+          <div class="columna-dia">Jueves</div>
+          <div class="columna-horario">17:00 - 18:30</div>
+          <div class="columna-edad">Mayores de 6 años</div>
+        </div>
       </div>
-      <img src="imagenes/taller-terminado.png" alt="Niños creando arte" class="img-creacion">
-    </div>
-
-    <div class="seccion-main seccion-invertida fade-in">
-      <div class="texto-main">
-        <h1>¿Qué se aprende?</h1>
-        <p>
-          En El Taller se investiga, se prueba, se juega y se crea.<br>
-          Usamos pintura, dibujo, escultura, collage y muchas técnicas más, pero siempre desde la exploración personal.<br><br>
-          No es un taller "solo de dibujo". Acá cada uno elige cómo expresarse. A veces con témperas, otras con arcilla, con papeles, telas, lápices o ¡todo mezclado!<br><br>
-          No hay errores, hay caminos nuevos. El arte, cuando nace desde adentro, se convierte en una forma de conocerse, disfrutar y compartir con otros.
-        </p>
+      
+      <div class="info-contacto-horarios">
+        <a href="https://ig.me/m/eltaller_espacio_de_arte" target="_blank" rel="noopener noreferrer" class="boton-contacto-grande">
+          Contáctanos por Instagram
+        </a>
       </div>
-      <img src="imagenes/taller2.jpeg" alt="Técnicas mixtas" class="img-tecnicas">
     </div>
-
-    <div class="seccion-main fade-in">
-      <div class="texto-main">
-        <h1>Restauración de muebles</h1>
-        <p>
-          Además de coordinar El Taller, la persona a cargo es especialista en restauración de muebles.<br>
-          Con experiencia, dedicación y respeto por lo original, transforma piezas antiguas o desgastadas en objetos con nueva vida.<br><br>
-          Si tenés un mueble que querés recuperar o dar un nuevo estilo, se hacen trabajos a pedido.<br>
-          Cada restauración es única, pensada según la historia y el deseo de quien lo trae.<br><br>
-          Porque el arte también está en revivir lo que parecía perdido.
-        </p>
-      </div>
-      <img src="imagenes/mueble-terminado.jpeg" alt="Restauración de muebles" class="img-restauracion" id="hover-img">
-    </div>
-
   </div>
 </main>
 
@@ -91,6 +79,7 @@
     
     <div class="footer-columna logo-redes">
       <div class="logo-box-footer">
+        <!-- Corrigiendo ruta del logo a imagenes/logo.jpeg -->
         <img src="imagenes/logo.jpeg" alt="Logo El Taller">
       </div>
       <div class="redes-footer">
@@ -107,7 +96,7 @@
       <h3>Ubicación</h3>
       <p>José Champagnat 3130, B1801 Canning<br>
          Provincia de Buenos Aires</p>
-      <p>📍 Taller presencial – Canning </p>
+      <p>Taller presencial – Canning </p>
     </div>
 
     <div class="footer-columna mapa-footer">
