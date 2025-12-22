@@ -568,110 +568,14 @@ nav a {
   transform: scale(1.02);
   border-color: var(--color-acento);
 }
-
-/* Ocultando botón de inicio en mobile y centrando botones del header */
-@media (max-width: 466px) {
-  .logo-img {
-    height: 80px;
-  }
-
-  .nav-izq {
-    display: none !important;
-  }
-
-  .nav-der {
-    gap: 0.8rem;
-    justify-content: center;
-    flex: 1;
-  }
-
-  .header-inferior {
-    justify-content: center;
-  }
-
-  .nav-der li a {
-    font-size: 0.75rem;
-  }
-
-  .boton-contacto {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.7rem;
-  }
-
-  .header-inferior {
-    padding: 0.3rem 1rem;
-  }
-
-  .main {
-    padding-top: 11rem;
-  }
-
-  .seccion-main {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    padding: 1.5rem;
-  }
-
-  .texto-main {
-    max-width: 100%;
-  }
-
-  .texto-main h1 {
-    font-size: 1.8rem;
-  }
-
-  .seccion-main img {
-    width: 100%;
-    max-width: 300px;
-    margin-top: 1rem;
-  }
-
-  h1,
-  h2 {
-    font-size: 1.8rem;
-  }
-}
-
-@media (min-width: 460px) {
+/* Seccion invertida para desktop */
+@media (min-width: 481px) {
   .seccion-invertida {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     gap: 4rem;
-  }
-}
-
-@media (max-width: 466px) {
-  .seccion-main,
-  .seccion-invertida {
-    flex-direction: column !important;
-  }
-
-  .seccion-invertida .texto-main {
-    order: 1;
-  }
-
-  .seccion-invertida img {
-    order: 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .contenedor-footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-columna {
-    margin-bottom: 2rem;
-  }
-
-  .redes-footer a {
-    justify-content: center;
   }
 }
 
@@ -825,4 +729,528 @@ a:focus img {
 .redes-footer a:hover .icono-red {
   transform: scale(1.1);
   filter: drop-shadow(0 0 8px var(--color-acento));
+}
+
+/* ========== ESTILOS PARA FORMULARIO DE CONTACTO ========== */
+#video-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.formulario-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 13rem);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.form-contacto {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: var(--sombra-media);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.form-contacto h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.form-contacto label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-primario);
+}
+
+.form-contacto input,
+.form-contacto select,
+.form-contacto textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(28, 43, 75, 0.1);
+  border-radius: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: var(--transicion-rapida);
+}
+
+.form-contacto input:focus,
+.form-contacto select:focus,
+.form-contacto textarea:focus {
+  outline: none;
+  border-color: var(--color-acento);
+}
+
+.form-contacto button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--color-primario), #2a4066);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transicion-rapida);
+}
+
+.form-contacto button:hover {
+  background: linear-gradient(135deg, var(--color-acento), #05c5e8);
+  transform: translateY(-2px);
+}
+
+/* ========== MEJORAS RESPONSIVAS PARA MÓVIL ========== */
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .main {
+    padding-top: 12rem;
+  }
+
+  .seccion-main {
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+  }
+
+  .texto-main p {
+    font-size: 1rem;
+  }
+
+  .form-contacto {
+    padding: 2rem;
+    max-width: 90%;
+  }
+
+  .boton-contacto-grande {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .seccion-horarios {
+    padding: 2rem 1rem 3rem 1rem;
+  }
+
+  .columna-dia,
+  .columna-horario,
+  .columna-edad {
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Pantallas pequeñas (móviles) - MEJORADAS */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  html {
+    scroll-padding-top: 160px;
+  }
+
+  .header-logo-superior {
+    padding: 0.5rem 0;
+  }
+
+  .logo-img {
+    height: 70px;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .header-logo-superior {
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  .header-inferior {
+    display: none;
+  }
+
+  .header-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-header);
+    padding: 0.5rem 0.8rem;
+    border-bottom: 3px solid var(--color-secundario);
+  }
+
+  .header-mobile .nav-der {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-mobile .nav-der li a {
+    font-size: 0.75rem;
+  }
+
+  .header-mobile .boton-contacto {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .nav-der li a {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .boton-contacto {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .main {
+    padding-top: 9rem;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .seccion-main {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 0.8rem;
+  }
+
+  .seccion-main:hover {
+    transform: none;
+  }
+
+  .texto-main {
+    max-width: 100%;
+  }
+
+  .texto-main h1 {
+    font-size: 1.5rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .texto-main h1::after {
+    width: 60px;
+    height: 3px;
+  }
+
+  .texto-main p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .seccion-main img {
+    width: 100%;
+    max-width: 280px;
+    margin-top: 0.5rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Formulario de contacto en móvil */
+  .formulario-contenedor {
+    padding: 1rem;
+    min-height: auto;
+    align-items: flex-start;
+  }
+
+  .form-contacto {
+    padding: 1.5rem;
+    max-width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .form-contacto h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-contacto label {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .form-contacto input,
+  .form-contacto select,
+  .form-contacto textarea {
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .form-contacto button {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  /* Botón Instagram grande en móvil */
+  .boton-contacto-grande {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Horarios en móvil */
+  .seccion-horarios {
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
+  }
+
+  .titulo-horarios {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tabla-horarios {
+    margin-bottom: 2rem;
+  }
+
+  .fila-horario {
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .columna-dia,
+  .columna-horario,
+  .columna-edad {
+    padding: 0.6rem 0.3rem;
+    font-size: 0.7rem;
+    border-right: 1px solid rgba(28, 43, 75, 0.1);
+  }
+
+  .columna-edad {
+    border-right: none;
+  }
+
+  .fila-horario.encabezado .columna-dia,
+  .fila-horario.encabezado .columna-horario,
+  .fila-horario.encabezado .columna-edad {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.2rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .fila-horario.encabezado .columna-edad {
+    border-right: none;
+  }
+
+  .info-contacto-horarios {
+    padding: 1.5rem 1rem;
+    margin: 1rem auto;
+  }
+
+  /* Footer en móvil */
+  .pie {
+    padding: 2rem 1rem;
+  }
+
+  .contenedor-footer {
+    gap: 2rem;
+  }
+
+  .footer-columna {
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .logo-box-footer {
+    padding: 1rem;
+  }
+
+  .logo-box-footer img {
+    height: 120px;
+  }
+
+  .redes-footer {
+    margin-top: 1rem;
+  }
+
+  .redes-footer a {
+    font-size: 0.85rem;
+  }
+
+  .ubicacion-footer h3 {
+    font-size: 1.2rem;
+  }
+
+  .ubicacion-footer p {
+    font-size: 0.9rem;
+  }
+
+  .mapa-footer iframe {
+    height: 180px;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .logo-img {
+    height: 60px;
+  }
+
+  .header-inferior {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .nav-der {
+    gap: 0.4rem;
+  }
+
+  .nav-der li a {
+    font-size: 0.6rem;
+  }
+
+  .boton-contacto {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.55rem;
+  }
+
+  .main {
+    padding-top: 8rem;
+  }
+
+  .texto-main h1 {
+    font-size: 1.3rem;
+  }
+
+  .texto-main p {
+    font-size: 0.85rem;
+  }
+
+  .form-contacto {
+    padding: 1rem;
+  }
+
+  .form-contacto h1 {
+    font-size: 1.3rem;
+  }
+
+  .boton-contacto-grande {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .titulo-horarios {
+    font-size: 1.3rem;
+  }
+
+  .header-mobile .nav-der {
+    gap: 0.4rem;
+  }
+
+  .header-mobile .nav-der li a {
+    font-size: 0.6rem;
+  }
+
+  .header-mobile .boton-contacto {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.55rem;
+  }
+
+  .columna-dia,
+  .columna-horario,
+  .columna-edad {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.6rem;
+  }
+
+  .fila-horario.encabezado .columna-dia,
+  .fila-horario.encabezado .columna-horario,
+  .fila-horario.encabezado .columna-edad {
+    font-size: 0.55rem;
+    padding: 0.4rem 0.2rem;
+  }
+}
+@media (max-width: 480px) {
+  /* Quitar resaltado azul SOLO en móvil */
+  .boton-contacto,
+  .boton-contacto:focus,
+  .boton-contacto:active {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+}
+@media (max-width: 480px) {
+
+  /* Desactivar hover azul en botón contacto (touch) */
+  .boton-contacto:hover {
+    background: linear-gradient(135deg, var(--color-primario), #2a4066);
+    box-shadow: 0 4px 15px rgba(28, 43, 75, 0.3);
+    transform: none;
+  }
+
+  .boton-contacto::before {
+    display: none;
+  }
+
+  .boton-contacto {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+}
+@media (max-width: 480px) {
+
+  /* Quitar resaltado azul automático del navegador */
+  .boton-contacto,
+  .boton-contacto:focus,
+  .boton-contacto:focus-visible,
+  .boton-contacto:active {
+    background: linear-gradient(135deg, var(--color-primario), #2a4066);
+    box-shadow: 0 4px 15px rgba(28, 43, 75, 0.3);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Chrome Android agrega overlay a los <a> */
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+}
+@media (max-width: 480px) {
+
+  /* Separar más los botones del nav móvil */
+  .header-mobile .nav-der {
+    gap: 0.8rem;              /* antes era 0.5rem */
+  }
+
+  .header-mobile .nav-der li a {
+    padding: 0.4rem 0.6rem;   /* más área táctil */
+  }
+
+  /* Separación extra para el botón contacto */
+  .header-mobile .boton-contacto {
+    margin-left: 0.3rem;
+  }
+
 }
